@@ -24,19 +24,19 @@ currentDate.innerHTML = currentTime;
 
 function search(event) {
   event.preventDefault();
-  let input = document.querySelector("#search-city");
+  let input = document.querySelector("#search-city").value;
   let title = document.querySelector("h1");
   title.innerHTML = input;
 
-  let apiKey = `1fae33afca1700740bab533a4ot300d8`;
+  let apiKey = "1fae33afca1700740bab533a4ot300d8";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(function (response) {
     let temperature = Math.round(response.data.temperature.current);
-    temperature.innerHTML = document.querySelector("#units");
+    document.querySelector("#units").innerHTML = temperature;
     let humidity = response.data.temperature.humidity;
-    humidity.innerHTML = document.querySelector("#humidity");
+    document.querySelector("#humidity").innerHTML = humidity;
     let wind = response.data.wind.speed;
-    wind.innerHTML = document.querySelector("#wind");
+    document.querySelector("#wind").innerHTML = wind;
   });
 }
 
