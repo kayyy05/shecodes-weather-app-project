@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -10,8 +9,15 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -19,7 +25,12 @@
         <div class="weather-app">
           <center>
             <form>
-              <input type="text" placeholder="Enter a city" id="search-city" />
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                id="search-city"
+                autocomplete="off"
+              />
               <input type="submit" value="Search" />
             </form>
           </center>
@@ -31,16 +42,14 @@
               id="icon"
             />
             <div>
-              <strong id="temperature"></strong><span class="units">30°C</span>
+              <strong id="temperature"></strong><span id="units">30°C</span>
             </div>
           </div>
           <ul class="details">
-            <li>
-              <span id="day-time">Monday</span>
-              <span id="condition">Scattered Clouds</span>
-            </li>
-            <li>Humidity: 79%</li>
-            <li>Wind: 7.72km/h</li>
+            <li>Last updated: <span id="day-time">Monday 14:25</span></li>
+            <li><span id="condition">Scattered Clouds</span></li>
+            <li id="humidity">Humidity: 79%</li>
+            <li id="wind">Wind: 7.72km/h</li>
           </ul>
         </div>
 
