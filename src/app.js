@@ -28,20 +28,21 @@ function search(event) {
   let title = document.querySelector("h1");
   title.innerHTML = input;
 
-  let apiKey = "1fae33afca1700740bab533a4ot300d8";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}&units=metric`;
+  let apiKey = "1e473372851a26d6162e6984afe7be2f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(function (response) {
-    let temperature = Math.round(response.data.temperature.current);
+    let temperature = Math.round(response.data.main.temp);
+    let descriptionElement = response.data.weather[0].description;
+    let humidity = response.data.main.humidity;
+    let wind = Math.round(response.data.wind.speed * 3.6);
+    let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+
+    icon.setAttribute("src", iconUrl);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
     document.querySelector("#temp-digits").innerHTML = temperature;
-    let humidity = response.data.temperature.humidity;
+    document.querySelector("#condition").innerHTML = descriptionElement;
     document.querySelector("#humidity").innerHTML = `${humidity}%`;
-    let wind = response.data.wind.speed;
     document.querySelector("#wind").innerHTML = `${wind}km/h`;
-    let icon = response.data.condition.icon;
-    icon.setAttribute(
-      "src",
-      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}`
-    );
   });
 }
 

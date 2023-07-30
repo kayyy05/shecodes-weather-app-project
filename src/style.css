@@ -5,10 +5,13 @@ h1 {
   text-align: left;
   color: #9973ab;
   font-size: 45px;
-  margin: 0;
+  margin-left: 20px;
 }
 a {
   color: #400e63;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 .details {
   text-align: right;
@@ -41,8 +44,8 @@ a {
 }
 
 #temp-digits {
-  font-size: 50px;
+  font-size: 70px;
 }
 #units {
-  font-size: 50px;
+  font-size: 70px;
 }
