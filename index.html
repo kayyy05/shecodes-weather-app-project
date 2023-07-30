@@ -45,13 +45,15 @@
 
               <div class="d-flex weather-temperature">
                 <img
+                  class="weather-icon"
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                   alt="Clear"
                   id="icon"
                 />
 
                 <div>
-                  <strong id="temperature"></strong><span id="units">30°C</span>
+                  <strong id="temperature"></strong
+                  ><span id="temp-digits">30</span><span id="units">°C</span>
                 </div>
               </div>
             </div>
@@ -59,8 +61,8 @@
               <ul class="details">
                 <li>Last updated: <span id="day-time">Monday 14:25</span></li>
                 <li><span id="condition">Scattered Clouds</span></li>
-                <li id="humidity">Humidity: 79%</li>
-                <li id="wind">Wind: 7.72km/h</li>
+                <li>Humidity: <span id="humidity">79%</span></li>
+                <li>Wind: <span id="wind">7.72km/h</span></li>
               </ul>
             </div>
           </div>

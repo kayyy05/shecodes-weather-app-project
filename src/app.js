@@ -32,11 +32,16 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(function (response) {
     let temperature = Math.round(response.data.temperature.current);
-    document.querySelector("#units").innerHTML = temperature;
+    document.querySelector("#temp-digits").innerHTML = temperature;
     let humidity = response.data.temperature.humidity;
-    document.querySelector("#humidity").innerHTML = humidity;
+    document.querySelector("#humidity").innerHTML = `${humidity}%`;
     let wind = response.data.wind.speed;
-    document.querySelector("#wind").innerHTML = wind;
+    document.querySelector("#wind").innerHTML = `${wind}km/h`;
+    let icon = response.data.condition.icon;
+    icon.setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}`
+    );
   });
 }
 
