@@ -38,7 +38,7 @@ function search(event) {
     let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
 
     icon.setAttribute("src", iconUrl);
-    iconElement.setAttribute("alt", response.data.weather[0].description);
+    icon.setAttribute("alt", response.data.weather[0].description);
     document.querySelector("#temp-digits").innerHTML = temperature;
     document.querySelector("#condition").innerHTML = descriptionElement;
     document.querySelector("#humidity").innerHTML = `${humidity}%`;
