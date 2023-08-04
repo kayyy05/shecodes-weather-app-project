@@ -79,8 +79,7 @@ li:first-letter {
 #min-forecast-temp {
   opacity: 0.5;
 }
-#celsius-unit,
-#fahrenheit-unit {
+#celsius-unit {
   text-decoration: none;
 }
 #temp-digits {
